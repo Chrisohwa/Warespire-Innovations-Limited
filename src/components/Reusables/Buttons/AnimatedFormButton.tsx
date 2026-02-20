@@ -1,8 +1,6 @@
 "use client";
 import { ClipLoader } from "react-spinners";
-import { useFormikContext } from "formik";
-import { motion, useAnimation } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 interface CustomButtonProps {
 	type?: "button" | "submit" | "reset";
@@ -19,73 +17,38 @@ const AnimatedFormButton = ({
 	className = "",
 	disabled = false,
 }: CustomButtonProps) => {
-	const formik = useFormikContext();
-	const controls = useAnimation();
-	const [isMounted, setIsMounted] = useState(false); // Add a state to track component mount status
-	const buttonRef = useRef<HTMLButtonElement | null>(null);
-
-	// Define the animation variants
 	const variants = {
-		initial: { y: -100, opacity: 0 },
+		initial: { y: -20, opacity: 0 },
 		animate: { y: 0, opacity: 1 },
 	};
-
-	// Define the transition for a smoother animation
-	const transition = {
-		type: "spring", // Change to 'tween' for a linear transition
-		damping: 10, // Adjust the damping for the spring effect (higher value = less bounce)
-		stiffness: 100, // Adjust the stiffness for the spring effect (higher value = more bounce)
-		duration: 0.2,
-	};
-
-	useEffect(() => {
-		const observer = new IntersectionObserver(
-			(entries) => {
-				entries.forEach((entry) => {
-					if (entry.isIntersecting) {
-						// If button is in view, start the animation
-						setIsMounted(true);
-					} else {
-						// If button is not in view, reset the animation
-						setIsMounted(false);
-					}
-				});
-			},
-			{ threshold: 0.5 }, // Adjust the threshold as needed (0.5 means at least 50% of the button should be in view)
-		);
-
-		if (buttonRef.current) {
-			observer.observe(buttonRef.current);
-		}
-
-		// Clean up the observer when the component is unmounted
-		return () => {
-			if (buttonRef.current) {
-				observer.unobserve(buttonRef.current);
-			}
-		};
-	}, []);
-
-	useEffect(() => {
-		// Start the animation only when the component has mounted
-		if (isMounted) {
-			controls.start("animate");
-		}
-	}, [controls, isMounted]);
 
 	return (
 		<motion.button
 			type={type}
-			ref={buttonRef}
-			disabled={disabled}
+			disabled={disabled || isLoading}
 			className={className}
+			// --- MODERN APPROACH ---
 			initial='initial'
-			animate={controls} // Use the controls from useAnimation()
+			whileInView='animate'
+			viewport={{ once: false, amount: 0.5 }} // threshold: 0.5
 			variants={variants}
-			transition={transition}
-			whileHover={{ scale: 1.1 }} // Add a hover effect to the button
+			transition={{
+				type: "spring",
+				damping: 12, // Increased slightly for a more "expensive" feel
+				stiffness: 200,
+			}}
+			// Micro-interactions for the betting UI
+			whileHover={{ scale: 1.03 }}
+			whileTap={{ scale: 0.97 }}
 		>
-			{isLoading ? <ClipLoader color='#d4d3d3' /> : label}
+			{isLoading ? (
+				<div className='flex items-center justify-center gap-2'>
+					<ClipLoader size={20} color='#d4d3d3' />
+					<span>Processing...</span>
+				</div>
+			) : (
+				label
+			)}
 		</motion.button>
 	);
 };

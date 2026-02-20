@@ -10,7 +10,6 @@ import React from "react";
 import ProductCard from "../Cards/ProductCard";
 import { Product, ProductCategoryResponse } from "@constants";
 import CustomSwiper from "../CustomSwiper";
-import SwiperCore, { Virtual, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import {
