@@ -43,7 +43,7 @@ const SortedProducts = () => {
 		isLoading: categoryWpIsLoading,
 		isError: categoryIsError,
 	} = useCategories("");
-
+console.log(categories)
 	// State to hold products by category
 	const [categoryProductsMap, setCategoryProductsMap] = useState<{
 		[key: string]: ProductType[];
@@ -133,91 +133,91 @@ const SortedProducts = () => {
 	};
 
 	return (
-		<>
-			<div className='mb-8 lg:mb-16'>
-				<div className='space-y-5 md:space-y-10'>
-					{categories
-						?.filter((category: CategoryType) => category?.count > 0)
-						?.slice(0, 5)
-						?.map((category: CategoryType) => (
-							<div key={category?.id} className='space-y-4 overflow-visible'>
-								<div className='w-full items-center flex justify-between sm:px-2'>
-									<Link
-										href={`${
-											"/category/" +
-											convertToSlug(category?.name) +
-											"-" +
-											category?.id
-										}`}
-										onClick={() =>
-											handleCategoryClick(category?.name, category?.id)
-										}
-										dangerouslySetInnerHTML={{
-											__html: category?.name,
-										}}
-										className='text-lg sm:text-xl md:text-2xl w-4/5 font-medium tracking-tight text-black line-clamp-2'
-									/>
-									<Link
-										href={`${
-											"/category/" +
-											convertToSlug(category?.name) +
-											"-" +
-											category?.id
-										}`}
-										onClick={() =>
-											handleCategoryClick(category?.name, category?.id)
-										}
-										className='text-sm font-medium tracking-tight text-black hover:text-primary transition hover:underline underline-offset-4'
-									>
-										See all
-									</Link>
-								</div>
-								{/* Show loader when category products are loading */}
-								<Carousel
-									totalDataNumber={TotalCategoryProductsMap}
-									maxScrollTotal={maxScrollTotal}
-									scrollLeftTotal={scrollLeftTotal}
-									handleNext={handleNext}
-									handlePrev={handlePrev}
-								>
-									<div
-										ref={sliderRef}
-										className='flex gap-4 sm:gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory scroll-smooth pb-4'
-										style={{
-											scrollbarWidth: "none" /* Firefox */,
-											msOverflowStyle: "none" /* IE/Edge */,
-										}}
-									>
-										{isLoading ? (
-											<Loader />
-										) : (
-											categoryProductsMap[category?.id]?.map(
-												(product: ProductType) => (
-													<div
-														key={product.id}
-														className='flex-shrink-0 snap-start first:pl-4 last:pr-4 sm:first:pl-0 sm:last:pr-0'
-													>
-														<ProductCard2
-															id={product?.id}
-															image={product?.images[0]?.src}
-															oldAmount={product?.regular_price}
-															newAmount={product?.price}
-															description={product?.name}
-														/>
-													</div>
-												),
-											)
-										)}
-									</div>
-								</Carousel>
-							</div>
-						))}
-				</div>
-			</div>
+    <>
+      <div className="mb-8 lg:mb-16 border">
+        <div className="space-y-5 md:space-y-10">
+          {categories
+            ?.filter((category: CategoryType) => category?.count > 0)
+            ?.slice(0, 5)
+            ?.map((category: CategoryType) => (
+              <div key={category?.id} className="space-y-4 overflow-visible">
+                <div className="w-full max-w-[1440px] mx-auto mb-10 mt-20 items-center flex justify-between pr-2 lg:pr-2">
+                  <Link
+                    href={`${
+                      "/category/" +
+                      convertToSlug(category?.name) +
+                      "-" +
+                      category?.id
+                    }`}
+                    onClick={() =>
+                      handleCategoryClick(category?.name, category?.id)
+                    }
+                    dangerouslySetInnerHTML={{
+                      __html: category?.name,
+                    }}
+                    className=" text-lg sm:text-xl md:text-2xl w-4/5 font-medium tracking-tight text-black line-clamp-2"
+                  />
+                  <Link
+                    href={`${
+                      "/category/" +
+                      convertToSlug(category?.name) +
+                      "-" +
+                      category?.id
+                    }`}
+                    onClick={() =>
+                      handleCategoryClick(category?.name, category?.id)
+                    }
+                    className="pr-text-sm font-medium tracking-tight text-black hover:text-primary transition hover:underline"
+                  >
+                    See all
+                  </Link>
+                </div>
+                {/* Show loader when category products are loading */}
+                <Carousel
+                  totalDataNumber={TotalCategoryProductsMap}
+                  maxScrollTotal={maxScrollTotal}
+                  scrollLeftTotal={scrollLeftTotal}
+                  handleNext={handleNext}
+                  handlePrev={handlePrev}
+                >
+                  <div
+                    ref={sliderRef}
+                    className="w-full max-w-[1440px] mx-auto flex gap-4 sm:gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory scroll-smooth pb-4"
+                    style={{
+                      scrollbarWidth: "none" /* Firefox */,
+                      msOverflowStyle: "none" /* IE/Edge */,
+                    }}
+                  >
+                    {isLoading ? (
+                      <Loader />
+                    ) : (
+                      categoryProductsMap[category?.id]?.map(
+                        (product: ProductType) => (
+                          <div
+                            key={product.id}
+                            className="flex-shrink-0 snap-start"
+                          >
+                            <ProductCard2
+                              id={product?.id}
+                              image={product?.images[0]?.src}
+                              oldAmount={product?.regular_price}
+                              newAmount={product?.price}
+                              description={product?.name}
+                            />
+                          </div>
+                        ),
+                      )
+                    )}
+                  </div>
+                </Carousel>
+              </div>
+            ))}
+        </div>
+      </div>
 
-			<GlobalLoader isPending={categoryWpIsLoading || isPending} />
-		</>
-	);
+      <GlobalLoader isPending={categoryWpIsLoading || isPending} />
+    </>
+  );
 };
 
 export default SortedProducts;

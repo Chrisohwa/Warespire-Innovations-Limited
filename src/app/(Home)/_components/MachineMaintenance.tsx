@@ -6,43 +6,46 @@ import { heroBg, machineImage } from "@public/images";
 
 const MachineMaintenance = () => {
 	return (
-		<section className='w-full grid grid-cols-1 md:grid-cols-2 min-h-[800px] bg-white overflow-hidden'>
-			{/* 1. Content Section (Left) */}
-			<div className='bg-[#002B5B] flex flex-col justify-center p-8 sm:p-12 md:p-16 lg:p-24 space-y-8'>
-				{/* Main Heading */}
-				<h2 className='text-3xl sm:text-4xl md:text-5xl font-black text-white leading-tight tracking-tight uppercase'>
-					Maintenance for <br />
-					your machines.
-				</h2>
+    <section className="w-full grid grid-cols-1  md:grid-cols-2  bg-white overflow-hidden">
+      {/* 1. Image Section (Left) */}
+      <div className="relative w-full h-[350px] md:h-[420px]">
+        <Picture
+          src="/images/compImage.jpg"
+          alt="Computer components"
+          className="w-full h-full object-cover"
+        />
+      </div>
 
-				{/* Description Text */}
-				<p className='text-gray-200 text-base md:text-lg leading-relaxed max-w-lg font-medium opacity-90'>
-					Maintenance of Power supplies, peripherals, and precision components
-					that keep your digital life moving without interruption.
-				</p>
+      {/* 2. Content Section (Right) */}
+      <div className="relative bg-black flex flex-col h-[100%] items-center justify-center overflow-hidden">
 
-				{/* Action Button */}
-				<Link
-					href='/contact-us'
-					className='w-fit bg-white text-[#002B5B] font-bold uppercase tracking-widest px-8 py-3.5 rounded-sm hover:bg-gray-100 transition-all active:scale-95 shadow-lg'
-				>
-					Contact Us
-				</Link>
-			</div>
+        <div className="flex flex-col items-center justify-center w-full max-w-3xl px-6 sm:px-8 lg:px-12 py-8 lg:py-0">
+          {/* Main Heading */}
+          <h2 className="font-light text-[20px] sm:text-4xl md:text-[52px] pb-5  text-[#DC8204] leading-tight tracking-tight  relative z-10 text-center">
+            popular Gadget..
+          </h2>
 
-			{/* 2. Visual Section (Right) */}
-			<div className='relative h-[350px] md:h-auto'>
-				<Picture
-					src={machineImage} // Path to your hardware image
-					alt='Close up of internal computer components'
-					className='w-full h-full object-cover'
-				/>
+          <p className="text-[22px] sm:text-4xl md:text-[36px] font-black text-[#DC8204] leading-tight tracking-tight  relative z-10 text-center">
+            Hundreds Gadgets More!
+          </p>
 
-				{/* Subtle overlay for mobile to improve contrast if text overlaps */}
-				<div className='absolute inset-0 bg-black/5 md:hidden' />
-			</div>
-		</section>
-	);
+          {/* Description */}
+          <p className="text-[#fff] place-content-end font-thin text-base md:text-[12px] leading-relaxed max-w-lg relative z-10 text-center mt-4">
+            Having quality means you have more joy, a new friend, We have 200+
+            different gadget that can meet your needs!
+          </p>
+
+          {/* Button */}
+          <Link
+            href="/contact-us"
+            className="w-fit bg-[#DC8204] text-[#fff] font-bold uppercase tracking-widest px-8 py-3.5 rounded-lg hover:opacity-90 transition-all active:scale-95 shadow-lg relative z-10 mt-6"
+          >
+            Contact Us
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default MachineMaintenance;

@@ -54,18 +54,18 @@ const MobileNav: React.FC<MobileNavProps> = ({
 						onClose={closeDrawer}
 						placement={"left"}
 					>
-						<div className='flex flex-col gap-2 py-4 px-4 items-center'>
+						<div className='flex flex-col gap-2 py-4 px-4 md:px-4 items-start md:items-center'>
 							<button onClick={closeDrawer} className='self-end'>
 								<IoMdClose
 									size={24}
 									className='hover:scale-125 transition text-primary-100'
 								/>
 							</button>
-							<div className='flex w-fit gap-2 mt-4 text-base leading-[140%] bg-light p-1 rounded-md transition'>
+							<div className='flex w-fit gap-2 mt-4 text-base leading-[140%] bg-light p-1 md:p-1 rounded-md transition'>
 								<motion.button
 									initial={{ scale: 1 }}
 									whileHover={{ scale: 1.05 }}
-									className={`px-4 py-2 rounded-md ${
+									className={` px-2 md:px-4 py-2 rounded-md ${
 										activeTab === "allCategory"
 											? "bg-white text-primary-200"
 											: "bg-light text-gray-600"

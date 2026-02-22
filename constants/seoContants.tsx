@@ -1,10 +1,11 @@
 import { Metadata } from "next";
 
 // 1. Core Configuration Constants
-export const SITE_NAME = "Nestora Digital Innovations";
+export const SITE_NAME = "warespire innovations limited";
 export const SITE_URL =
-	process.env.NEXT_PUBLIC_SITE_URL || "https://nestora.digital"; // Update with actual URL
-export const TWITTER_HANDLE = "@NestoraDigital";
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  "https://warespire-innovations-limited.com"; // Update with actual URL
+export const TWITTER_HANDLE = "@warespireinnovations";
 
 interface SEOConfig {
 	title: string;
@@ -19,7 +20,7 @@ export const SEODATA: Record<string, SEOConfig> = {
 	default: {
 		title: `${SITE_NAME} | Empowering Businesses Through Technology`,
 		description:
-			"Nestora Digital Innovations Ltd provides cutting-edge software development, AI integration, and digital transformation strategies to scale modern enterprises.",
+			"warespire innovations Ltd provides cutting-edge software development, AI integration, and digital transformation strategies to scale modern enterprises.",
 		keywords: [
 			"Nestora Digital",
 			"Software Development Nigeria",
@@ -92,7 +93,7 @@ export const SEODATA: Record<string, SEOConfig> = {
 	register: {
 		title: `Partner with Us | Join ${SITE_NAME}`,
 		description:
-			"Create an account to start your project journey with Nestora Digital Innovations and access premium tech resources.",
+			"Create an account to start your project journey with warespire innovations and access premium tech resources.",
 		keywords: [
 			"Get started with Nestora",
 			"Project onboarding",
