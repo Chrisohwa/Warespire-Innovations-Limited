@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky"
+    "prepare": "echo 'No husky in production'"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.9",
