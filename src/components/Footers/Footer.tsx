@@ -125,7 +125,7 @@ const Footer = () => {
 
 	return (
     <footer className=" bg-black w-full py-2 flex flex-col item-center">
-      <div className="mx-auto max-w-[1440px] w-full hidden slg:block">
+      <div className="mx-auto max-w-[1350px] w-full hidden slg:block">
         <section className="flex justify-center gap-16 mt-2">
           <div className="flex flex-col gap-4 w-[80%]">
             {/* <LogoImage className='!w-[20px] lg:!w-[30px] rounded-sm' /> */}

@@ -6,9 +6,9 @@ import { heroBg, machineImage } from "@public/images";
 
 const MachineMaintenance = () => {
 	return (
-    <section className="w-full grid grid-cols-1  md:grid-cols-2  bg-white overflow-hidden">
+    <section className="w-full grid grid-cols-1  md:grid-cols-[40%_60%]  bg-white overflow-hidden">
       {/* 1. Image Section (Left) */}
-      <div className="relative w-full h-[350px] md:h-[420px]">
+      <div className="relative w-full h-[300px] md:h-[280px]">
         <Picture
           src="/images/compImage.jpg"
           alt="Computer components"
@@ -18,7 +18,6 @@ const MachineMaintenance = () => {
 
       {/* 2. Content Section (Right) */}
       <div className="relative bg-black flex flex-col h-[100%] items-center justify-center overflow-hidden">
-
         <div className="flex flex-col items-center justify-center w-full max-w-3xl px-6 sm:px-8 lg:px-12 py-8 lg:py-0">
           {/* Main Heading */}
           <h2 className="font-light text-[20px] sm:text-4xl md:text-[52px] pb-5  text-[#DC8204] leading-tight tracking-tight  relative z-10 text-center">
@@ -38,7 +37,7 @@ const MachineMaintenance = () => {
           {/* Button */}
           <Link
             href="/contact-us"
-            className="w-fit bg-[#DC8204] text-[#fff] font-bold uppercase tracking-widest px-8 py-3.5 rounded-lg hover:opacity-90 transition-all active:scale-95 shadow-lg relative z-10 mt-6"
+            className="w-fit bg-[#DC8204] text-[#fff] text-[14px] font-normal md:font-medium uppercase tracking-widest px-8 py-2 md:py-3 rounded-lg hover:opacity-80 transition-all active:scale-95 shadow-lg relative z-10 mt-6"
           >
             Contact Us
           </Link>

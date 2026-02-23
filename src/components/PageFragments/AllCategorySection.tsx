@@ -127,7 +127,7 @@ const AllCategorySection = () => {
     <>
       {/* Hero Concept inspired by the image */}
       <div className="relative min-h-screen bg-[#060809] overflow-hidden flex items-center">
-        <div className="max-w-[1440px] w-full mx-auto  flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
+        <div className="max-w-[1350px] w-full mx-auto  flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
           {/* Text Section */}
           <div className="flex flex-col justify-center space-y-6 text-center lg:text-left p-2 md:p-1 ">
             <h1 className="text-[24px] sm:text-4xl lg:text-5xl xl:text-6xl max-w-[680px] font-bold text-white leading-tight xl:leading-[60px]">
@@ -161,7 +161,7 @@ const AllCategorySection = () => {
       </div>
 
       <section className="w-full bg-[#f1f3f5] py-12">
-        <div className="max-w-[1450px] mx-auto  grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="max-w-[1350px] mx-auto  grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Speed */}
           <div className="flex items-center gap-6 space-y-4 max-w-[393px] ">
             <div className="w-[72px] h-[72px] flex items-center justify-center  bg-white shadow-sm">
@@ -221,10 +221,10 @@ const AllCategorySection = () => {
         </div>
       </section>
       {/* Category Section Styling Idea */}
-      <h5 className="max-w-[1440px] mx-auto mt-[50px] text-#181818 font-bold text-[30px] lg:text-[48px]">
+      <h5 className="max-w-[1350px] mx-auto mt-[50px] text-#181818 font-bold text-[30px] lg:text-[48px]">
         Browse categories
       </h5>
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 mx-auto max-w-[1440px] px-2 lg:px-0  mt-6 gap-10">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 mx-auto max-w-[1350px] px-2 lg:px-0  mt-6 gap-10">
         {Categories?.slice(0, 5).map((cat) => {
           const productImage = categoryProductsMap[cat?.id];
           return (

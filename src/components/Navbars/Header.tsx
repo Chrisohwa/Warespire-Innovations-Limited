@@ -106,7 +106,7 @@ const Header = () => {
     <>
       <header className="flex flex-col w-full bg-[#050505] z-[100] fixed top-0 border-b border-white/5 shadow-2xl transition-all">
         {/* Desktop Header */}
-        <div className="hidden slg:grid grid-cols-3 items-center justify-stretch w-full py-3 max-w-[1440px] mx-auto">
+        <div className="hidden slg:grid grid-cols-3 items-center justify-stretch w-full py-3 max-w-[1350px] mx-auto">
           {/* 1. Logo */}
           <div className="col-span-1 flex items-center gap-20 ">
             <div className=" text-white ">
@@ -208,7 +208,7 @@ const Header = () => {
                         className="size-9 rounded-full border border-white/10"
                       />
                     ) : (
-                      <div className="size-9 rounded-full bg-blue-600 text-white flex items-center justify-center font-black text-xs">
+                      <div className="size-9 rounded-full bg-gray-600 text-white flex items-center justify-center font-black text-xs">
                         {getFirstCharacter(wc_customer_info?.first_name || "U")}
                       </div>
                     )}

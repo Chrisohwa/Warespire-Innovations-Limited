@@ -141,7 +141,7 @@ console.log(categories)
             ?.slice(0, 5)
             ?.map((category: CategoryType) => (
               <div key={category?.id} className="space-y-4 overflow-visible">
-                <div className="w-full max-w-[1440px] mx-auto mb-10 mt-20 items-center flex justify-between pr-2 lg:pr-2">
+                <div className="w-full max-w-[1350px] mx-auto mb-10 mt-20 items-center flex justify-between pr-2 lg:pr-2">
                   <Link
                     href={`${
                       "/category/" +
@@ -182,7 +182,7 @@ console.log(categories)
                 >
                   <div
                     ref={sliderRef}
-                    className="w-full max-w-[1440px] mx-auto flex gap-4 sm:gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory scroll-smooth pb-4"
+                    className="w-full max-w-[1350px] mx-auto flex gap-4 sm:gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory scroll-smooth pb-4"
                     style={{
                       scrollbarWidth: "none" /* Firefox */,
                       msOverflowStyle: "none" /* IE/Edge */,
