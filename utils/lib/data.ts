@@ -13,6 +13,8 @@ export const Alliancepay_Checkout_Url =
 export const Encryption_Checkout_Url =
 	process.env.NEXT_PUBLIC_ENCRYPTION_BASE_URL || "";
 
+export const CurrencySwap_Url = process.env.NEXT_PUBLIC_CURRENCY || "";
+
 export const ENCRYPTION_KEY = process.env.NEXT_PUBLIC_ENCRYPTION_KEY;
 export const Alliancepay_Public_key =
 	process.env.NEXT_PUBLIC_CHECKOUT_PUBLIC_KEY_API || "";

@@ -8,6 +8,7 @@ import {
 	WC_consumerSecret,
 	WC_URL,
 	WP_API_URL,
+	CurrencySwap_Url
 } from "./lib/data";
 
 export const getCountriesApi = async () => {
@@ -100,8 +101,9 @@ export const WooCommerceServer = axios.create({
 
 export async function fetchExchangeRate(from: string, to: string) {
 	const res = await fetch(
-		`${Encryption_Checkout_Url}/Payment/get-exchange-rate?baseCurrencyCode=${from}&destinationCurrencyCode=${to}`,
-	);
+    `${CurrencySwap_Url}/Payment/get-exchange-rate?baseCurrencyCode=${from}&destinationCurrencyCode=${to}`,
+    // `${Encryption_Checkout_Url}/Payment/get-exchange-rate?baseCurrencyCode=${from}&destinationCurrencyCode=${to}`,
+  );
 	const data = await res.json();
 	return data.rate;
 }
