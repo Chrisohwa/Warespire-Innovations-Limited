@@ -2,7 +2,7 @@
 import { Provider } from "react-redux";
 import React, { ReactNode, useEffect } from "react";
 import { CartProvider } from "react-use-cart";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { QueryClient, QueryClientProvider } from "react-query";
 import LoadingBar, { LoadingBarRef } from "react-top-loading-bar";
 import { ToastContainer } from "react-toastify";
 import * as _redux from "../../components/set-up";
